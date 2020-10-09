@@ -105,6 +105,7 @@ async function init(newConfig = {}) {
         const testAccount = await nodemailer.createTestAccount();
         config.transportOpts.auth.user = testAccount.user;
         config.transportOpts.auth.pass = testAccount.pass;
+        delete config.transportOpts.service;
     }
 
     const transporter = await nodemailer.createTransport(config.transportOpts)
